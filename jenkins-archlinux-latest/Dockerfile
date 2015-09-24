@@ -31,6 +31,7 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/yaourt" > /etc/s
 
 RUN su jenkins -c "yaourt -S --noconfirm transifex-client-beta"
 RUN ssh-keygen -A
+RUN sed -i -e "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
 # Standard SSH port
 EXPOSE 22
