@@ -6,23 +6,24 @@ MAINTAINER Teo Mrnjavac <teo@kde.org>
 RUN apt-get update
 RUN apt-get -y upgrade
 
-# Install a basic SSH server
-RUN apt-get install -y openssh-server
+# Install OpenSSH, JDK 8, sudo and a bunch of other stuff for Calamares.
+RUN apt-get -y install build-essential openjdk-8-jdk sudo debhelper cmake extra-cmake-modules qtbase5-dev \
+                       libqt5svg5-dev libqt5quick5 qtdeclarative5-dev extra-cmake-modules libkf5i18n-dev \
+                       libkf5solid-dev libkf5coreaddons-dev python3-dev libboost-python-dev os-prober qttools5-dev \
+                       libparted-dev libkf5config-dev gettext libyaml-cpp-dev pkg-config libatasmart-dev \
+                       pkg-kde-tools qttools5-dev-tools transifex-client git libpolkit-qt5-1-dev openssh-client \
+                       libqt5webkit5-dev libkf5parts-dev libkf5service-dev konsole openssh-server
+
+# Set up sshd.
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd
 RUN mkdir -p /var/run/sshd
 
-# Install JDK 8 (latest edition)
-RUN apt-get -y install build-essential openjdk-8-jdk
-
-RUN apt-get -y install debhelper cmake extra-cmake-modules qtbase5-dev libqt5svg5-dev libqt5quick5 qtdeclarative5-dev extra-cmake-modules \
-                   libkf5i18n-dev libkf5solid-dev libkf5coreaddons-dev python3-dev libboost-python-dev os-prober qttools5-dev \
-                   libparted-dev libkf5config-dev gettext libyaml-cpp-dev pkg-config libatasmart-dev pkg-kde-tools qttools5-dev-tools \
-                   transifex-client git libpolkit-qt5-1-dev openssh-client libqt5webkit5-dev libkf5parts-dev libkf5service-dev konsole
-
-# Add user jenkins to the image
+# Add user jenkins to the image.
 RUN adduser --quiet jenkins
 # Set password for the jenkins user (you may want to alter this).
 RUN echo "jenkins:jenkins" | chpasswd
+# Allow the jenkins user to update the system.
+RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/apt*" > /etc/sudoers.d/jenkins
 
 # Standard SSH port
 EXPOSE 22
