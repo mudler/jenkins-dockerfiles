@@ -6,7 +6,7 @@ RUN pacman-key --populate
 RUN pacman-key --refresh-keys
 
 # Add archlinuxfr for yaourt.
-RUN echo $'[archlinuxfr]\n\
+RUN echo $'\n[archlinuxfr]\n\
 SigLevel = Never\n\
 Server = http://repo.archlinux.fr/$arch\n' >> /etc/pacman.conf
 
