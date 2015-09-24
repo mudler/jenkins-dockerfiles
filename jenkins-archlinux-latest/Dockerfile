@@ -22,14 +22,14 @@ RUN pacman -S --noconfirm base-devel jdk8-openjdk cmake extra-cmake-modules \
                           libatasmart git polkit-qt5 openssh qt5-webkit kparts \
                           kservice konsole yaourt
 
-RUN yaourt -S --noconfirm transifex-client-beta
-
 # Add user jenkins to the image.
 RUN useradd -m -s /bin/bash jenkins
 # Set password for the jenkins user (you may want to alter this).
 RUN echo "jenkins:jenkins" | chpasswd
 # Allow the jenkins user to update the system.
 RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/yaourt" > /etc/sudoers.d/jenkins
+
+RUN su jenkins -c "yaourt -S --noconfirm transifex-client-beta"
 
 # Standard SSH port
 EXPOSE 22
