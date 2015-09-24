@@ -30,6 +30,7 @@ RUN echo "jenkins:jenkins" | chpasswd
 RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/yaourt" > /etc/sudoers.d/jenkins
 
 RUN su jenkins -c "yaourt -S --noconfirm transifex-client-beta"
+RUN ssh-keygen -A
 
 # Standard SSH port
 EXPOSE 22
