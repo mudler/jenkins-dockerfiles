@@ -23,7 +23,7 @@ RUN adduser --quiet jenkins
 # Set password for the jenkins user (you may want to alter this).
 RUN echo "jenkins:jenkins" | chpasswd
 # Allow the jenkins user to update the system.
-RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/apt*" > /etc/sudoers.d/jenkins
+RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/jenkins
 
 # Standard SSH port
 EXPOSE 22
