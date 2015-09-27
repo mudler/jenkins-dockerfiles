@@ -12,7 +12,7 @@ RUN apt-get -y install build-essential openjdk-8-jdk sudo debhelper cmake extra-
                        libkf5solid-dev libkf5coreaddons-dev python3-dev libboost-python-dev os-prober qttools5-dev \
                        libparted-dev libkf5config-dev gettext libyaml-cpp-dev pkg-config libatasmart-dev \
                        pkg-kde-tools qttools5-dev-tools transifex-client git libpolkit-qt5-1-dev openssh-client \
-                       libqt5webkit5-dev libkf5parts-dev libkf5service-dev konsole openssh-server
+                       libqt5webkit5-dev libkf5parts-dev libkf5service-dev konsole openssh-server cppcheck
 
 # Set up sshd.
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd
