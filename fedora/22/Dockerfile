@@ -14,7 +14,8 @@ RUN dnf -y install java-1.8.0-openjdk sudo cmake extra-cmake-modules qt5-qtbase-
                    boost-python3 boost-python3-devel os-prober parted-devel kf5-kconfig-core \
                    kf5-kconfig-devel gettext yaml-cpp-devel pkgconfig libatasmart-devel \
                    polkit-qt5-1-devel openssh openssh-server kf5-kparts-devel gcc-c++ \
-                   kf5-kservice-devel konsole5 konsole5-part cppcheck; dnf clean all
+                   kf5-kservice-devel konsole5 konsole5-part cppcheck kf5-kiconthemes-devel; \
+                   dnf clean all
 
 # Add user jenkins to the image.
 RUN useradd -m -s /bin/bash jenkins
