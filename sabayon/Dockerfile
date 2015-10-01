@@ -2,11 +2,14 @@
 FROM sabayon/base-amd64
 MAINTAINER mudler <mudler@sabayonlinux.org>
 
-# Make sure the package repositories are up to date && installing basically needed packages
-RUN equo up && equo i net-misc/rsync app-crypt/gnupg
+# Make sure the package repositories are up to date
+RUN equo up
 
 # Don't bother to accept manually any license
 RUN rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept
+
+# Upgrading all packages
+RUN equo i net-misc/rsync app-crypt/gnupg && equo u 
 
 # Installing calamares dependencies
 RUN equo i --onlydeps app-admin/calamares
