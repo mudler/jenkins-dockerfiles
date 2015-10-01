@@ -13,7 +13,7 @@ RUN dnf -y install java-1.8.0-openjdk sudo cmake extra-cmake-modules qt5-qtbase-
                    kf5-solid-libs kf5-solid-devel kf5-kcoreaddons-devel python3-libs python3-devel \
                    boost-python3 boost-python3-devel os-prober parted-devel kf5-kconfig-core \
                    kf5-kconfig-devel gettext yaml-cpp-devel pkgconfig libatasmart-devel \
-                   polkit-qt5-1-devel openssh openssh-server kf5-kparts-devel gcc-c++ \
+                   polkit-qt5-1-devel openssh openssh-server kf5-kparts-devel gcc-c++ libblkid-devel \
                    kf5-kservice-devel konsole5 konsole5-part cppcheck kf5-kiconthemes-devel; \
                    dnf clean all
 
