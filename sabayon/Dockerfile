@@ -15,7 +15,7 @@ RUN equo i net-misc/rsync app-crypt/gnupg && equo u
 RUN equo i --onlydeps app-admin/calamares
 
 # Installing compilation tools && needed packages
-RUN equo i sys-devel/gcc sys-devel/base-gcc sys-devel/automake net-misc/openssh app-admin/sudo dev-vcs/git
+RUN equo i sys-devel/gcc sys-devel/base-gcc sys-devel/automake net-misc/openssh app-admin/sudo dev-vcs/git dev-util/cmake
 
 # Add user jenkins to the image.
 RUN useradd -m -s /bin/bash jenkins
