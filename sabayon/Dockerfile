@@ -16,7 +16,7 @@ RUN equo i --onlydeps app-admin/calamares
 
 # Installing compilation tools && needed packages
 RUN equo i sys-devel/gcc sys-devel/base-gcc sys-devel/automake net-misc/openssh app-admin/sudo \
-           dev-vcs/git dev-util/cmake kde-frameworks/extra-cmake-modules dev-libs/boost
+           dev-vcs/git dev-util/cmake kde-frameworks/extra-cmake-modules dev-libs/boost kde-frameworks/kio kde-frameworks/kservice kde-frameworks/kparts kde-frameworks/kiconthemes
 
 # Add user jenkins to the image.
 RUN useradd -m -s /bin/bash jenkins
