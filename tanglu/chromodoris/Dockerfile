@@ -16,7 +16,8 @@ RUN apt-get -y install konsole cppcheck transifex-client git
 RUN apt-get -y install cmake debhelper extra-cmake-modules gettext libatasmart-dev libboost-python-dev \
                        libkf5config-dev libkf5coreaddons-dev libkf5i18n-dev libkf5solid-dev libparted-dev \
                        libpolkit-qt5-1-dev libqt5svg5-dev libyaml-cpp-dev os-prober pkg-config pkg-kde-tools \
-                       python3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev qttools5-dev-tools
+                       python3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev qttools5-dev-tools libqt5webkit5-dev \
+                       libkf5parts-dev libkf5service-dev libkf5iconthemes-dev kio-dev
 
 # Set up sshd.
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd
