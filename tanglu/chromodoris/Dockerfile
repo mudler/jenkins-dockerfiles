@@ -1,5 +1,5 @@
 # This Dockerfile is used to build an image containing basic stuff to be used as a Jenkins slave build node.
-FROM tanglu:chromodoris
+FROM tanglu/tanglu:chromodoris
 MAINTAINER Matthias Klumpp <mak@debian.org>
 
 # Make sure the image is up-to-date
