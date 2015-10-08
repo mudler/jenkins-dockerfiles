@@ -1,5 +1,5 @@
 # This Dockerfile is used to build an image containing basic stuff to be used as a Jenkins slave build node.
-FROM sabayon/base-amd64
+FROM sabayon/base-amd64-squashed
 MAINTAINER mudler <mudler@sabayonlinux.org>
 
 # Make sure the package repositories are up to date
